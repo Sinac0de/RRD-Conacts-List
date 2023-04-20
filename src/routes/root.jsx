@@ -36,26 +36,26 @@ export default function Root() {
         <nav>
           {contacts.length ? (
             <ul>
-              {contacts.map((contact) => {
+              {contacts.map((contact) => (
                 <li key={contact.id}>
-                  <Link to={`/contacts/${contact.id}`}>
+                  <Link to={`contacts/${contact.id}`}>
                     {contact.first || contact.last ? (
                       <>
                         {contact.first} {contact.last}
                       </>
                     ) : (
                       <i>No Name</i>
-                    )}
+                    )}{" "}
+                    {contact.favorite && <span>★</span>}
                   </Link>
-                </li>;
-              })}
+                </li>
+              ))}
             </ul>
           ) : (
             <p>
               <i>No contacts</i>
             </p>
           )}
-          <ul></ul>
         </nav>
       </div>
       <div id="detail">
